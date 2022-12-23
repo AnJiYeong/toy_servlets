@@ -26,7 +26,8 @@ public class PollWithDB {
         return result;
     }
 
-    public HashMap<String, Object> getExample(String exampleUid) throws SQLException {
+    /*
+     public HashMap<String, Object> getExample(String exampleUid) throws SQLException {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
 
@@ -44,10 +45,25 @@ public class PollWithDB {
 
         return result;
     }
+     */
+    
 
-    public void getAnswers() {
-        ArrayList<String> list = new ArrayList<>();
+    public ArrayList<String> getQuestionUid() throws SQLException {
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
 
+        String query = "SELECT QUESTIONS_UID " +
+                        " FROM QUESTIONS_LIST ";
+        ResultSet resultSet = statement.executeQuery(query);
         
+        ArrayList<String> uid_list = new ArrayList<String>();
+
+        while(resultSet.next()) {
+            uid_list.add(resultSet.getString("QUESTIONS_UID"));
+        }
+
+        return uid_list;
     }
+    
+
 }

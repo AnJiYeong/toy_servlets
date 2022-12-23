@@ -21,7 +21,7 @@ public class DetailServlets extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // input type
         String questions_Uid = request.getParameter("QUESTIONS_UID");
-        String example_Uid = request.getParameter("EXAMPLE_UID");
+        //String example_Uid = request.getParameter("EXAMPLE_UID");
 
         // biz with DB and Class
         PollWithDB pollWithDB = new PollWithDB();
@@ -36,23 +36,33 @@ public class DetailServlets extends HttpServlet{
             e.printStackTrace();
         }
 
-        HashMap<String, Object> example = null;
+        /*
+         HashMap<String, Object> example = null;
         try {
             example = pollWithDB.getExample(example_Uid);
-            System.out.println(example.get("EXAMPLE_UID"));
-            System.out.println(example.get("EXAMPLE"));
-            System.out.println(example.get("ORDERS"));
+            // System.out.println(example.get("EXAMPLE_UID"));
+            // System.out.println(example.get("EXAMPLE"));
+            // System.out.println(example.get("ORDERS"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+         */
         
+
+        ArrayList<String> questions_uid = null;
+        try {
+            questions_uid = pollWithDB.getQuestionUid();
+            System.out.println(questions_uid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
 
         // output with html
         request.setAttribute("question", question);
-        request.setAttribute("example", example);
+        // request.setAttribute("example", example);
+        request.setAttribute("questions_uid", questions_uid);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/polls/details.jsp");
         requestDispatcher.forward(request, response);
