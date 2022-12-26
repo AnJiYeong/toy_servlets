@@ -11,15 +11,7 @@
   </head>
   <body>
     <% HashMap<String, Object> question = (HashMap<String, Object>)request.getAttribute("question"); %>
-    <!-- <% HashMap<String, Object> example = (HashMap<String, Object>)request.getAttribute("example"); %> -->
     <% ArrayList<String> questions_uid = (ArrayList<String>)request.getAttribute("questions_uid"); %>
-    <div> 
-        <a href="/polls/PollServlet?QUESTIONS_UID=Q1">Q1</a> / 
-        <a href="/polls/PollServlet?QUESTIONS_UID=Q2">Q2</a> /
-        <a href="/polls/PollServlet?QUESTIONS_UID=Q3">Q3</a> /
-        <a href="/polls/PollServlet?QUESTIONS_UID=Q4">Q4</a> /
-        <a href="/polls/PollServlet?QUESTIONS_UID=Q5">Q5</a>
-    </div>
     <div>
       <a href="/polls/PollServlet?QUESTIONS_UID=Q1"><%= questions_uid.get(0) %></a> 
       <a href="/polls/PollServlet?QUESTIONS_UID=Q2"><%= questions_uid.get(1) %></a> 
@@ -30,9 +22,6 @@
     <div>
       <%= question.get("ORDERS") %>. <%= question.get("QUESTIONS") %>
     </div>
-    <!-- <div>
-      (<%= example.get("ORDERS") %>) <%= example.get("EXAMPLE") %> 
-    </div> -->
     <div>(1) 전혀 아니다 (2) 아니다 (3) 보통이다</div>
   </body>
 </html>
