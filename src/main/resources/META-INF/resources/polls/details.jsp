@@ -20,6 +20,7 @@
       <% ArrayList<String> questions_uid = (ArrayList<String>)request.getAttribute("questions_uid"); %>
       <div class="container">
         <div>
+          <!-- Q1 ~ Q5 -->
           <%
             for(int i = 0; i < questions_uid.size(); i++) { 
               String question_a = "<a class='text-secondary text-decoration-none fw-bold' href='/polls/PollServlet?QUESTIONS_UID=";
@@ -32,10 +33,13 @@
           <%= question_a %>
           <% } %>
         </div>
-    
+        
+        <!-- question -->
         <div class="mt-2 pb-2">
           <%= question.get("ORDERS") %>. <%= question.get("QUESTIONS") %>
         </div>
+
+        <!-- answer -->
         <div>
           <%
             ArrayList<HashMap> answer_list = null;

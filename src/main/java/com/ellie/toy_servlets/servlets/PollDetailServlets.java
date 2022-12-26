@@ -1,7 +1,6 @@
 package com.ellie.toy_servlets.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,12 +34,14 @@ public class PollDetailServlets extends HttpServlet{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        // answer
         for(int i = 0; i < answer_list.size(); i++){
             HashMap<String, Object> answer = answer_list.get(i);
             System.out.println(answer.get("ORDERS"));
             System.out.println(answer.get("EXAMPLE"));
         }
 
+        // input, label
         for(int i = 0; i < answer_list.size(); i++){
             HashMap<String, Object> answer = answer_list.get(i);
             String answer_input = "<input type='radio' class='form-check-input' name='amswers"
@@ -51,6 +52,7 @@ public class PollDetailServlets extends HttpServlet{
             System.out.println(answer_label);
         }
 
+        // Q1 ~ Q5
         ArrayList<String> questions_uid = null;
         try {
             questions_uid = pollWithDB.getQuestionUid();
@@ -58,11 +60,11 @@ public class PollDetailServlets extends HttpServlet{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         for(int i = 0; i < questions_uid.size(); i++) {
             System.out.println(questions_uid.get(i));
         }
 
-        
         for(int i = 0; i < questions_uid.size(); i++) {
             String question_a = "<a href='/polls/PollServlet?QUESTIONS_UID=";
             String questionUid = questions_uid.get(i);
