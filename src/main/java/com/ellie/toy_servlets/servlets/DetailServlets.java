@@ -46,6 +46,17 @@ public class DetailServlets extends HttpServlet{
             System.out.println(questions_uid.get(i));
         }
 
+        
+        for(int i = 0; i < questions_uid.size(); i++) {
+            String question_a = "<a href='/polls/PollServlet?QUESTIONS_UID=";
+            String questionUid = questions_uid.get(i);
+            question_a += questionUid + "'>" + questionUid + "</a>";
+            if(i != questions_uid.size() - 1) {
+                question_a += " /";
+            }
+            System.out.println(question_a);
+        }
+
 
 
         // output with html
