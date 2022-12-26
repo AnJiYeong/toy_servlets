@@ -35,7 +35,7 @@
         </div>
         
         <!-- question -->
-        <div class="mt-2 pb-2">
+        <div>
           <%= question.get("ORDERS") %>. <%= question.get("QUESTIONS") %>
         </div>
 
@@ -51,7 +51,7 @@
               <%
                 String answer_input = "<input type='radio' class='form-check-input' name='amswers"
                             + "' id='" + answer.get("EXAMPLE_UID") + "'>";
-                String answer_label = "<label class='form-label' for='" + answer.get("EXAMPLE_UID") + "'>("
+                String answer_label = "<label class='form-check-label' for='" + answer.get("EXAMPLE_UID") + "'>("
                             + answer.get("ORDERS") + ") " + answer.get("EXAMPLE") + "</label>";
               %>
               <%= answer_input %>
