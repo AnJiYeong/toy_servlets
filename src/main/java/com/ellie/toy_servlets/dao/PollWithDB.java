@@ -26,28 +26,6 @@ public class PollWithDB {
         return result;
     }
 
-    /*
-     public HashMap<String, Object> getExample(String exampleUid) throws SQLException {
-        Commons commons = new Commons();
-        Statement statement = commons.getStatement();
-
-        String query = "SELECT * FROM EXAMPLE_LIST " +
-                        " WHERE EXAMPLE_UID = '"+exampleUid+"'";
-
-        ResultSet resultSet = statement.executeQuery(query);
-        HashMap<String, Object> result = null;
-        while(resultSet.next()) {
-            result = new HashMap<>();
-            result.put("EXAMPLE_UID", resultSet.getString("EXAMPLE_UID"));
-            result.put("EXAMPLE", resultSet.getString("EXAMPLE"));
-            result.put("ORDERS", resultSet.getInt("ORDERS"));
-        }
-
-        return result;
-    }
-     */
-    
-
     public ArrayList<String> getQuestionUid() throws SQLException {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
