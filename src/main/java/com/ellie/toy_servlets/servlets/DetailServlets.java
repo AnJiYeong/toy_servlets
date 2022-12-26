@@ -42,6 +42,9 @@ public class DetailServlets extends HttpServlet{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        for(int i = 0; i < questions_uid.size(); i++) {
+            System.out.println(questions_uid.get(i));
+        }
 
 
 
